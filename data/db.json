@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "userId": 1,
+      "checked": false,
+      "item": "Milk",
+      "note": "full creamsdf sdf dsfwfewef"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "checked": true,
+      "item": "Meat",
+      "note": "chicken breastdf"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "checked": true,
+      "item": "Eggs",
+      "note": ""
+    }
+  ]
+}
