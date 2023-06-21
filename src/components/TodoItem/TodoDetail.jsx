@@ -2,8 +2,9 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import React from 'react'
 import MenuIcon from "@mui/icons-material/Menu";
 import { updateTodo } from "../../api/todosApi";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-export const TodoDetail = ({ todo }) => {
+export const TodoDetail = ({ todo, handleDelete, handleUpdate }) => {
   const [open, setOpen] = React.useState(false);
   const [note, setNote] = React.useState(todo.note);
   const [item, setItem] = React.useState(todo.item);
@@ -40,23 +41,23 @@ export const TodoDetail = ({ todo }) => {
 
     const putTodo = async () => {
       const res = await updateTodo(updatedTodo)
-      if (res.status === 200) {
+      if (res.status == 200) {
         // handleClose()
         setResultText("Succeed! Closing soon...")
         setTimeout(() => {
-          window.location.reload()
+          // window.location.reload()
           handleClose()
-        }, 800)
+          handleUpdate(res.data);
 
+        }, 800)
       } else {
         // alert("Something wrong. Try again later")
         setResultText("Something wrong. Try again later")
-
       }
     }
-
     putTodo()
   }
+
 
   const DetailButton = () => (
     <IconButton
@@ -64,16 +65,32 @@ export const TodoDetail = ({ todo }) => {
       size="large"
       edge="start"
       color="inherit"
-      aria-label="menu"
+      aria-label="detail"
       sx={{ mr: 2 }}
     >
       <MenuIcon />
     </IconButton>
   );
 
+  const DeleteButton = () => (
+    <IconButton
+      onClick={() => handleDelete(todo.id)}
+      size="large"
+      edge="start"
+      color="error"
+      aria-label="delete"
+      sx={{ mr: 2 }}
+    >
+      <DeleteOutlineIcon />
+    </IconButton>
+  );
+
   return (
     <>
-      <DetailButton />
+      <div>
+        <DetailButton />
+        <DeleteButton />
+      </div>
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>
           <TextField
@@ -105,15 +122,19 @@ export const TodoDetail = ({ todo }) => {
               value={note}
             />
             <FormControlLabel
-              control={<Switch />}
+              control={<Switch checked={checked} />}
               onChange={handleCompleteChange}
-              value={checked}
               label="Complete"
             />
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Typography variant="subtitle1" color={resultText.startsWith("Suc") ? "green" : "red"}>{resultText}</Typography>
+          <Typography
+            variant="subtitle1"
+            color={resultText.startsWith("Suc") ? "green" : "red"}
+          >
+            {resultText}
+          </Typography>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleConfirm}>Confirm</Button>
         </DialogActions>

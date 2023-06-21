@@ -16,7 +16,6 @@ export const getTodos = async () => {
 
 export const addTodo = async ({ userId, item, note, checked }) => {
     // await delay()
-    if (Math.random() < 0.5) throw new Error("Failed to add new item!")
     const response = await todosApi.post(todosUrlEndpoint, { userId, item, note, checked })
     return response
 }
@@ -27,7 +26,7 @@ export const updateTodo = async (todo) => {
     return response
 }
 
-export const deleteTodo = async ({ id }) => {
+export const deleteTodo = async (id) => {
     // await delay()
     const response = await todosApi.delete(`${todosUrlEndpoint}/${id}`)
     return response

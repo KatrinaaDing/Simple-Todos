@@ -1,17 +1,17 @@
 import React from "react";
-import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { SearchInput } from "./SearchInput";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import { AddTodoDialog } from "./AddTodoDialog";
 
-export const NavBar = () => {
+export const NavBar = ({ handleAddTodo, handleSearch }) => {
   return (
     <AppBar
       position="static"
       sx={{
-        borderRadius: 3,
-        mt: 2,
-        mx: 2,
+        // borderRadius: 3,
+        // mt: 2,
+        // mx: 2,
         width: "auto",
       }}
     >
@@ -22,7 +22,10 @@ export const NavBar = () => {
           justifyContent: "space-between",
         }}
       >
-        <IconButton
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Todo List
+        </Typography>
+        {/* <IconButton
           size="large"
           edge="start"
           color="inherit"
@@ -30,18 +33,10 @@ export const NavBar = () => {
           sx={{ mr: 2 }}
         >
           <MenuIcon />
-        </IconButton>
-        <Box display="flex">
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="add"
-            sx={{ mr: 2 }}
-          >
-            <AddRoundedIcon />
-          </IconButton>
-          <SearchInput />
+        </IconButton> */}
+        <Box display='flex'>
+          <AddTodoDialog handleAdd={handleAddTodo} />
+          <SearchInput handleSearch={handleSearch}/>
         </Box>
       </Toolbar>
     </AppBar>
