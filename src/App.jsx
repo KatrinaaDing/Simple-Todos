@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import * as React from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import './App.css';
