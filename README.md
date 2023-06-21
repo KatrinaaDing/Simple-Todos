@@ -13,5 +13,17 @@
 3. Edit a todo item.
 4. Mark a todo item as completed.
 5. Search todo items by title.
+6. Dark mode and light mode support.
 
-![image-demo](images/demo.gif)
+### Demo
+
+Light mode (left) and dark mode (right)
+
+​                                <img src="images/light-mode.png" alt="light-mode" style="zoom: 25%;" />              <img src="images/dark-mode.png" alt="dark-mode" style="zoom: 25%;" />  
+
+
+
+Features demo
+
+<img src="images/demo.gif" alt="image-demo" style="zoom:33%;" />
+
