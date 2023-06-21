@@ -2,29 +2,22 @@
   "todos": [
     {
       "userId": 1,
-      "item": "milk",
-      "note": "full  cream",
-      "checked": false,
-      "id": 4
-    },
-    {
-      "userId": 1,
       "item": "milkshake",
       "note": "chocolate",
-      "checked": true,
+      "checked": false,
       "id": 5
     },
     {
       "userId": 1,
-      "item": "milktea",
-      "note": "+perl\n+coconut jelly",
+      "item": "coffee",
+      "note": "flat white",
       "checked": false,
       "id": 6
     },
     {
       "userId": 1,
-      "item": "coffee",
-      "note": "",
+      "item": "milk",
+      "note": "full cream",
       "checked": false,
       "id": 7
     }
